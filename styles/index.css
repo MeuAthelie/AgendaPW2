@@ -6,6 +6,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 2.5em;
+    border: solid 1px #000;
+    border-radius: 16px;
+    background-color: #FBF5F4;
 }
 
 .search-header {
