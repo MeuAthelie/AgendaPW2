@@ -17,10 +17,26 @@
 
 .search-bar {
     width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
 #pesquisa {
     width: 75%;
+    height: 2em;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:active {
+    cursor: default;
 }
 
 .contacts-container {
@@ -35,4 +51,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 1.25em;
+}
+
+.red {
+    color: #aa3333;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 468px;
+    }
 }
