@@ -10,6 +10,8 @@ CREATE TABLE contatos (
 
 INSERT INTO contatos (nome, email, telefone) VALUES 
 	("Paulo Prates", "paulo@mail.com", "(11) 94002-8922"),
-    ("Victor Oliveira", "victor@mail.com", "(11) 92345-5678");
+    ("Victor Oliveira", "victor@mail.com", "(11) 92345-5678"),
+    ("Tio João", "joao@siles.com", "(11) 99999-1406");
 
+SELECT * FROM contatos;
 DROP TABLE contatos;
