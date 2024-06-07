@@ -58,6 +58,13 @@ button:active {
     font-size: 1.25em;
 }
 
+.contact-name {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: .5em;
+}
+
 .red {
     color: #aa3333;
 }
