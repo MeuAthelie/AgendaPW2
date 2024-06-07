@@ -26,7 +26,7 @@ request.onreadystatechange = function() {
         });
     }
 }
-request.open('GET', 'http://localhost:3000/get-nomes.php', true);
+request.open('GET', 'http://localhost/AgendaPW2/get-nomes.php', true);
 request.send();
 
 // for (let itgo = 0; itgo < 10; itgo++) {
