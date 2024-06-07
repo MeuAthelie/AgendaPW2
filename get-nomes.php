@@ -1,17 +1,18 @@
 <?php
-    $database = new mysqli('localhost', 'root', '', 'Agenda');
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
 
-    function getNomes() {
-        global $database;
-        
-        $query = "SELECT * FROM contatos";
-        $resultado = $database->query($query);
+$database = mysqli_connect('localhost', 'root', '', 'Agenda');
 
-        $nomes = [];
+$query = "SELECT * FROM contatos";
+$resultado = mysqli_query($database, $query);
 
-        while ($linha = $resultado->fetch_assoc()) {
-            $nomes[] = $linha;
-        }
+$nomes = [];
 
-        return $nomes;
-    }
+while ($linha = mysqli_fetch_assoc($resultado)) {
+    $nomes[] = $linha;
+}
+
+echo json_encode($nomes);
+
+mysqli_close($database);
