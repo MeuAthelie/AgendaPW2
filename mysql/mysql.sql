@@ -3,15 +3,13 @@ use Agenda;
 
 CREATE TABLE contatos (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(200) NOT NULL,
-    email VARCHAR(150) NOT NULL,
-    telefone VARCHAR(30) NOT NULL
+    nome VARCHAR(200) NOT NULL
 );
 
-INSERT INTO contatos (nome, email, telefone) VALUES 
-	("Paulo Prates", "paulo@mail.com", "(11) 94002-8922"),
-    ("Victor Oliveira", "victor@mail.com", "(11) 92345-5678"),
-    ("Tio João", "joao@siles.com", "(11) 99999-1406");
+INSERT INTO contatos (nome) VALUES 
+	("Paulo Prates"),
+    ("Victor Oliveira"),
+    ("Tio João");
 
 SELECT * FROM contatos;
 DROP TABLE contatos;
