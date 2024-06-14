@@ -12,10 +12,16 @@ leitura.onreadystatechange = function() {
                 <div class="contact">
                     <div class="contact-name">
                         <p>${contato.nome}</p>
+                        <div class="hidden" id="editar${contato.id}">
+                            <input type="text" name="nome${contato.id}" id="nome${contato.id}" placeholder="Novo nome..." />
+                            <button>
+                                <i class="fa-solid fa-square-check fa-lg green" id="confirmar${contato.id}" onClick="editar(this)"></i>
+                            </button>
+                        </div>
                     </div>
                 <div>
                     <button type="button">
-                        <i class="fa-solid fa-pen fa-lg"></i>
+                        <i class="fa-solid fa-pen fa-lg" id="alterar${contato.id}" onClick="prepEditar(this)"></i>
                     </button>
                     <button type="button" id="${contato.id}" onClick="excluir(this)">
                         <i class="fa-solid fa-trash fa-lg red"></i>
@@ -69,4 +75,36 @@ function inserir() {
     }
 
     inserir.send(nome);
+}
+
+function prepEditar(elemento) {
+    let elementoId = `editar${elemento.id.replace('alterar', '')}`;
+
+    let inputDiv = $(`#${elementoId}`);
+    inputDiv.toggleClass('hidden shown');
+}
+
+function editar(elemento) {
+    let elementoId = `nome${elemento.id.replace('confirmar', '')}`;
+    let inputNome = $(`#${elementoId}`);
+
+    let id = inputNome.attr('id');
+
+    let nome = inputNome.val();
+
+    let editar = new XMLHttpRequest();
+    editar.open('POST', 'http://localhost/AgendaPW2/update.php');
+    editar.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    editar.onreadystatechange = function () {
+        if (editar.readyState === 4 && editar.status === 200) {
+            console.log(this.responseText);
+
+            leitura.open('GET', 'http://localhost/AgendaPW2/get-nomes.php');
+            leitura.send();
+        }
+    }
+
+    let data = `id=${id.replace('nome', '')}&nome=${nome}`
+    editar.send(data);
 }

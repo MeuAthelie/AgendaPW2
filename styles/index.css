@@ -54,19 +54,39 @@ button:active {
     height: auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     font-size: 1.25em;
 }
 
 .contact-name {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: flex-start;
-    gap: .5em;
+}
+
+.contact-name p {
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.shown {
+    display: flex;
+    flex-direction: row;
+    gap: .2em;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .red {
     color: #aa3333;
+}
+
+.green {
+    color: #018501;
 }
 
 @media screen and (min-width: 768px) {
